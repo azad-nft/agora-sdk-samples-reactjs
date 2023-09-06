@@ -71,7 +71,9 @@ Please ensure that the [`config.json`](config.json) file is correctly populated 
 # Run tests
 
 The project is e2e tested using cypress testing. To start tests:
-- Run the project using `npm run start:dev`.
+- Install `pnpm` using `npm install -g pnpm`.
+- Install dependencies using `pnpm install`.
+- Run the project using `pnpm run dev`.
 - Run `npx cypress open` in the root directory of the project in another terminal.
 - Select `E2E Testing` in the dialog box that opens.
 - Choose any browser from the options shown.
