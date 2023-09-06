@@ -29,10 +29,11 @@ To run the sample projects in this folder, take the following steps:
     git clone https://github.com/AgoraIO/signaling-sdk-samples-web.git
     ```
 
-1. Install the dependencies. Open Terminal in the root directory of this project and run the following command:
+1. Install `pnpm` and install the dependencies. Open Terminal in the root directory of this project and run the following commands:
 
     ```bash
-    npm install
+    npm install -g pnpm
+    pnpm install
     ```
 1. Generate [temporary authentication tokens](https://webdemo.agora.io/token-builder/). 
    In Signaling, each token you create for your app is specific to a user ID. To test your app, you need a token for each user in the channel. 
@@ -43,10 +44,9 @@ To run the sample projects in this folder, take the following steps:
 1. Open a command prompt in the project folder, and run the following command:
 
     ``` bash
-    npm run build
-    npm run start:dev
+    pnpm run dev
     ```
 
-    Open the project at `http://localhost:9000/`.
+    Open the project at URL shown on your terminal.
 
 1. Select an item from the dropdown and test the sample codes.
