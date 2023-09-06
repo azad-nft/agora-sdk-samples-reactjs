@@ -4,7 +4,7 @@
     "channelName": "",
     "token": "",
     "proxyUrl": "http://localhost:8080/",
-    "serverUrl": "https://agora-token-service-production-10e3.up.railway.app",
+    "serverUrl": "",
     "tokenExpiryTime": "600",
     "encryptionMode": 1,
     "salt": "",
