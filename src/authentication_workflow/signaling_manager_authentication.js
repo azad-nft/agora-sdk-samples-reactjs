@@ -107,7 +107,7 @@ const SignalingManagerAuthentication = async (
     } else {
       streamChannel.leave().then((response) => {
         console.log(response);
-        messageCallback("left channel: " + streamChannelName);
+        messageCallback("Left the channel: " + streamChannelName);
         streamChannel = null;
       });
     }
