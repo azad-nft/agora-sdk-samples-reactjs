@@ -1,6 +1,6 @@
 # Agora Signaling SDK for Web v2.x reference app
 
-This repository holds the code examples used for the [Agora Signaling SDK for Web](https://docs-staging-git-milestone-22-signalling-211-agora-gdxe.vercel.app/en/signaling/overview/product-overview?platform=web) documentation. Clone the repo, run and test the samples, use the code in your own project. Enjoy.
+This repository holds the code examples used for the [Agora Signaling SDK for Web](https://docs-beta.agora.io/en/signaling/overview/product-overview?platform=web) documentation. Clone the repo, run and test the samples, use the code in your own project. Enjoy.
 
 - [Samples](#samples)
 - [Prerequisites](#prerequisites)
@@ -53,17 +53,17 @@ To run the sample projects in this folder, take the following steps:
    
 1. **Modify the project configuration**
 
-   The app loads connection parameters from [`./src/signaling_manager/config.json`](./src/signaling_manager/config.json)
-   . Ensure that the file is populated with the required parameter values before running the application.
+   This app loads connection parameters from [`./src/signaling_manager/config.json`](./src/signaling_manager/config.json).  If a valid `serverUrl` is provided, all samples use the token server to obtain a token, except the **SDK 
+   quickstart**  which uses `token`.
+
+   Ensure that `config.json` is populated with the required parameter values before running this reference app.
 
     - `uid`: The user ID associated with the application.
     - `appId`: (Required) The unique ID for the application obtained from [Agora Console](https://console.agora.io). 
     - `channelName`: The default name of the channel to join.
     - `token`:An token generated for `channelName`. You generate a temporary token using the [Agora token builder](https://agora-token-generator-demo.vercel.app/).
-    - `serverUrl`: The URL for the token generator. See [Secure authentication with tokens](authentication-workflow) for information on how to set up a token server.
+    - `serverUrl`: The URL for the token generator. See [Secure authentication with tokens](https://docs-beta.agora.io/en/signaling/get-started/authentication-workflow) for information on how to set up a token server.
     - `tokenExpiryTime`: The time in seconds after which a token expires.
-
-    If a valid `serverUrl` is provided, all samples use the token server to obtain a token except the **SDK quickstart** project that uses the `rtcToken`. If a `serverUrl` is not specified, all samples except **Secure authentication with tokens** use the `rtcToken` from `config.json`.
 
 1. **Build and run the project**
 
@@ -72,9 +72,11 @@ To run the sample projects in this folder, take the following steps:
     ``` bash
     pnpm run dev
     ```
+   Open the reference app using the URL displayed in Terminal. 
+
 1. **Run the samples in the reference app**
 
-   Choose a sample from the dropdown and test the code.
+   Choose a sample and test the code.
 
 ## Contact
 
