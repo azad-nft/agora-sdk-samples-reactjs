@@ -1,4 +1,4 @@
-# Agora Signaling SDK for Web v2.x reference app
+# Agora Signaling SDK for Web reference app
 
 This repository holds the code examples used for the [Agora Signaling SDK for Web](https://docs-beta.agora.io/en/signaling/overview/product-overview?platform=web) documentation. Clone the repo, run and test the samples, use the code in your own project. Enjoy.
 
@@ -6,6 +6,8 @@ This repository holds the code examples used for the [Agora Signaling SDK for We
 - [Prerequisites](#prerequisites)
 - [Run this project](#run-this-project)
 - [Contact](#contact)
+
+**This reference app uses Signaling SDK v2.x**.
 
 ## Samples  
 
