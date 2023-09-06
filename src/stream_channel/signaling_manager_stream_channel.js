@@ -13,19 +13,45 @@ const SignalingManagerStreamChannel = async (
     eventsCallback
   );
 
-  const topicJoinAndLeave = async function (isTopicJoined, topicName) {
+/*  const topicJoinAndLeave = async function (isTopicJoined, topicName) {
     if (isTopicJoined === false) {
       await signalingManager.getSignalingStreamChannel().joinTopic(topicName).then((response) => {
         messageCallback("Joined the topic: " + response.topicName);
       });
+      await signalingManager.getSignalingStreamChannel().subscribeTopic(topicName);
     } else {
       signalingManager.getSignalingStreamChannel().leaveTopic(topicName).then((response) => {
         console.log(response);
         messageCallback("left topic: " + response.topicName);
       });
     }
-  };
+  }; */
 
+  const topicJoinAndLeave = async function (isTopicJoined, topicName) {
+    if (isTopicJoined === false) {
+      try {
+        // Join the topic
+        const response = await signalingManager.getSignalingStreamChannel().joinTopic(topicName);
+        messageCallback("Joined the topic: " + response.topicName);
+        // Subscribe to the topic to receive topic messages
+        await signalingManager.getSignalingStreamChannel().subscribeTopic(topicName);
+      } catch (error) {
+        console.error("Error joining the topic:", error);
+      }
+    } else {
+      try {
+        // Unsubscribe from the topic
+        await signalingManager.getSignalingStreamChannel().unsubscribeTopic(topicName);
+        // Leave the topic
+        const response = await signalingManager.getSignalingStreamChannel().leaveTopic(topicName);
+        console.log(response);
+        messageCallback("Left topic: " + response.topicName);
+      } catch (error) {
+        console.error("Error leaving the topic:", error);
+      }
+    }
+  };
+  
   const sendTopicMessage = function (message, topicName) {
     if (message === "" || topicName === "") {
       console.log(

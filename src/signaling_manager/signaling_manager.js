@@ -151,7 +151,7 @@ const SignalingManager = async (messageCallback, eventsCallback, rtmConfig) => {
 
   // Get list of active members in the channel
   const getOnlineMembersInChannel = async (channelName, channelType) => {
-    const result = await getSignalingEngine().presence.whoNow(
+    const result = await getSignalingEngine().presence.getOnlineUsers(
       channelName,
       channelType
     );
