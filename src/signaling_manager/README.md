@@ -17,13 +17,7 @@ This README provides information about the configuration file [`config.json`](co
   "cipherKey": "",
   "presenceTimeout": 300,
   "logUpload": false,
-  "logLevel": {
-    "error": true,
-    "warn": true,
-    "info": true,
-    "track": true,
-    "debug": false
-  },
+  "logLevel": "debug",
   "cloudProxy": true,
   "useStringUserId": false
 }
