@@ -5,7 +5,6 @@ const SignalingManager = async (messageCallback, eventsCallback, rtmConfig) => {
   let signalingEngine = null;
   let signalingChannel = null;
 
-
   // Set up the signaling engine with the provided App ID, UID, and configuration
   const setupSignalingEngine = async (rtmConfig) => {
     try {
@@ -20,61 +19,59 @@ const SignalingManager = async (messageCallback, eventsCallback, rtmConfig) => {
       console.log("Error:", error);
     }
 
-    // Event listener to handle incoming messages and connection status changes
-    signalingEngine.addEventListener({
-      // Message event handler
-      message: (eventArgs) => {
-        eventsCallback("message", eventArgs);
-        messageCallback(
-          "Received message from " +
-            eventArgs.publisher +
-            ": " +
-            eventArgs.message
-        );
-      },
-      // State event handler
-      status: (eventArgs) => {
-        eventsCallback("status", eventArgs);
-        messageCallback(
-          "Connection state changed to: " +
-            eventArgs.state +
-            ", Reason: " +
-            eventArgs.reason
-        );
-      },
-      // Presence event handler.
-      presence: (eventArgs) => {
-        eventsCallback("presence", eventArgs);
-        if (eventArgs.eventType === "SNAPSHOT") {
-          messageCallback(
-            `User ${eventArgs.snapshot[0].userId} joined channel ${eventArgs.channelName}`
-          );
-        } else {
-          messageCallback(
-            "Presence event: " +
-              eventArgs.eventType +
-              ", User: " +
-              eventArgs.publisher
-          );
-        }
-      },
-      // Storage event handler
-      storage: (eventArgs) => {
-        eventsCallback("storage", eventArgs);
-      },
-      // Topic event handler
-      topic: (eventArgs) => {
-        eventsCallback("topic", eventArgs);
-      },
-      // Lock event handler
-      lock: (eventArgs) => {
-        eventsCallback("lock", eventArgs);
-      },
-      // TokenPrivilegeWillExpire event handler
-      TokenPrivilegeWillExpire: (eventArgs) => {
-        eventsCallback("TokenPrivilegeWillExpire ", eventArgs);
-      },
+    // Add listeners to handle event notifications
+    // Message event handler
+    signalingEngine.addEventListener("message", eventArgs => {
+      eventsCallback("message", eventArgs);
+      messageCallback(
+        "Received message from " +
+          eventArgs.publisher +
+          ": " +
+          eventArgs.message
+      );
     });
+    // State event handler
+    signalingEngine.addEventListener("status", eventArgs => {
+      eventsCallback("status", eventArgs);
+      messageCallback(
+        "Connection state changed to: " +
+          eventArgs.state +
+          ", Reason: " +
+          eventArgs.reason
+      );
+    });
+    // Presence event handler
+    signalingEngine.addEventListener("presence", eventArgs => {
+      eventsCallback("presence", eventArgs);
+      if (eventArgs.eventType === "SNAPSHOT") {
+        messageCallback(
+          `User ${eventArgs.snapshot[0].userId} joined channel ${eventArgs.channelName}`
+        );
+      } else {
+        messageCallback(
+          "Presence event: " +
+            eventArgs.eventType +
+            ", User: " +
+            eventArgs.publisher
+        );
+      }
+    });
+    // Storage event handler
+    signalingEngine.addEventListener("storage", eventArgs => {
+      eventsCallback("storage", eventArgs);
+    });
+    // Topic event handler
+    signalingEngine.addEventListener("topic", eventArgs => {
+      eventsCallback("topic", eventArgs);
+    });
+    // Lock event handler
+    signalingEngine.addEventListener("lock", eventArgs => {
+      eventsCallback("lock", eventArgs);
+    });
+    // TokenPrivilegeWillExpire event handler
+    signalingEngine.addEventListener("TokenPrivilegeWillExpire", eventArgs => {
+      eventsCallback("TokenPrivilegeWillExpire ", eventArgs);
+    });   
   };
 
   // Login to the signaling engine
@@ -154,7 +151,7 @@ const SignalingManager = async (messageCallback, eventsCallback, rtmConfig) => {
 
   // Get list of active members in the channel
   const getOnlineMembersInChannel = async (channelName, channelType) => {
-    const result = await getSignalingEngine().presence.whoNow(
+    const result = await getSignalingEngine().presence.getOnlineUsers(
       channelName,
       channelType
     );

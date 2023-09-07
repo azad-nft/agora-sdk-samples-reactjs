@@ -38,7 +38,7 @@ const SignalingManagerDataEncryption = async (
   encryptionMode = config.encryptionMode;
   // Start channel encryption
   const rtmConfig = {
-    logLevel: config.logFilter,
+    logLevel: config.logLevel,
     useStringUserId: config.useStringUserId,
     encryptionMode: config.encryptionMode,
     salt: encryptionSaltBase64,

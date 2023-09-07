@@ -17,13 +17,7 @@ This README provides information about the configuration file [`config.json`](co
   "cipherKey": "",
   "presenceTimeout": 300,
   "logUpload": false,
-  "logFilter": {
-    "error": true,
-    "warn": true,
-    "info": true,
-    "track": true,
-    "debug": false
-  },
+  "logLevel": "debug",
   "cloudProxy": true,
   "useStringUserId": false
 }
@@ -47,7 +41,7 @@ The `rmtConfig` struct represents the configuration for the application and prov
 - `salt`: The salt used for RTC encryption.
 - `cipherKey`: The encryption key used for RTC encryption.
 - `presenceTimeout`: Timeout before presence is removed. The unit is seconds, and the value range is [10,300].
-- `logFilter`: Filters for different log levels: error, warn, info, track and debug.
+- `logLevel`: Filters for different log levels: error, warn, info, track and debug.
 - `cloudProxy`: Whether to enable cloud proxy.
 - `useStringUserId`: Whether to use string type user ID. Recommended setting is false.
 

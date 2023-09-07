@@ -11,13 +11,7 @@
     "cipherKey": "",
     "presenceTimeout": 300,
     "logUpload": false,
-    "logFilter": {
-        "error": true,
-        "warn": true,
-        "info": true,
-        "track": true,
-        "debug": false
-    },
+    "logLevel": "debug",
     "cloudProxy": true,
     "useStringUserId": false,
     "rtcToken": ""

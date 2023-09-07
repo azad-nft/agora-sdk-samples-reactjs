@@ -21,11 +21,11 @@ const SignalingManagerStreamChannel = async (
     } else {
       signalingManager.getSignalingStreamChannel().leaveTopic(topicName).then((response) => {
         console.log(response);
-        messageCallback("left topic: " + response.topicName);
+        messageCallback("Left the topic: " + response.topicName);
       });
     }
-  };
-
+  }; 
+   
   const sendTopicMessage = function (message, topicName) {
     if (message === "" || topicName === "") {
       console.log(
