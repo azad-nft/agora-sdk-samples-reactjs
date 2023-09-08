@@ -1,4 +1,4 @@
-import AgoraRTM from "agora-rtm";
+import AgoraRTM from "agora-rtm-sdk";
 import config from "./config.json";
 
 const SignalingManager = async (messageCallback, eventsCallback, rtmConfig) => {
