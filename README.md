@@ -1,6 +1,6 @@
 # Agora Signaling SDK for Web reference app
 
-This repository holds the code examples used for the [Agora Signaling SDK for Web](https://docs-beta.agora.io/en/signaling/overview/product-overview?platform=web) documentation. Clone the repo, run and test the samples, use the code in your own project. Enjoy.
+This repository holds the code examples used for the [Agora Signaling SDK for Web](https://docs.agora.io/en/signaling/overview/product-overview?platform=web) documentation. Clone the repo, run and test the samples, use the code in your own project. Enjoy.
 
 - [Samples](#samples)
 - [Prerequisites](#prerequisites)
@@ -64,7 +64,7 @@ To run the sample projects in this folder, take the following steps:
     - `appId`: (Required) The unique ID for the application obtained from [Agora Console](https://console.agora.io). 
     - `channelName`: The default name of the channel to join.
     - `token`:An token generated for `channelName`. You generate a temporary token using the [Agora token builder](https://agora-token-generator-demo.vercel.app/).
-    - `serverUrl`: The URL for the token generator. See [Secure authentication with tokens](https://docs-beta.agora.io/en/signaling/get-started/authentication-workflow) for information on how to set up a token server.
+    - `serverUrl`: The URL for the token generator. See [Secure authentication with tokens](https://docs.agora.io/en/signaling/get-started/authentication-workflow) for information on how to set up a token server.
     - `tokenExpiryTime`: The time in seconds after which a token expires.
 
 1. **Build and run the project**
