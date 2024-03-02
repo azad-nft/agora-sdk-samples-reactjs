@@ -1,17 +1,17 @@
-import SignalingManagerAuthentication from "./signaling_manager_authentication.js";
-import showMessage from "../utils/showMessage.js";
-import setupProjectSelector from "../utils/setupProjectSelector.js";
-import docURLs from "../utils/docSteURLs.js";
+import SignalingManagerAuthentication from "./signaling_manager_authentication.jsx";
+import showMessage from "../utils/showMessage.jsx";
+// import setupProjectSelector from "../utils/setupProjectSelector.js";
+// import docURLs from "../utils/docSteURLs.js";
 
 var isLoggedIn = false;
 var uid;
 var channelName;
 
 window.onload = async () => {
-  let isStreamChannelJoined = false;
+  // let isStreamChannelJoined = false;
 
   // Set the project selector
-  setupProjectSelector();
+  // setupProjectSelector();
 
   const handleSignalingEvents = (event, eventArgs) => {
     switch (event) {
@@ -29,7 +29,7 @@ window.onload = async () => {
     sendChannelMessage,
     renewToken,
     fetchTokenAndLogin,
-    streamChannelJoinAndLeave,
+    // streamChannelJoinAndLeave,
   } = await SignalingManagerAuthentication(showMessage, handleSignalingEvents);
 
   // Login with custom UID using token received from token generator
@@ -64,18 +64,18 @@ window.onload = async () => {
     await unsubscribe(channelName);
   };
 
-  document.getElementById("streamJoinAndLeave").onclick = async function () {
-    channelName = document.getElementById("streamChannelName").value.toString();
-    await streamChannelJoinAndLeave(isStreamChannelJoined, uid, channelName); // Join and leave logic
+  // document.getElementById("streamJoinAndLeave").onclick = async function () {
+  //   channelName = document.getElementById("streamChannelName").value.toString();
+  //   await streamChannelJoinAndLeave(isStreamChannelJoined, uid, channelName); // Join and leave logic
 
-    // UI changes for join and leave
-    isStreamChannelJoined = !isStreamChannelJoined;
-    if (isStreamChannelJoined) {
-      document.getElementById("streamJoinAndLeave").innerHTML = "Leave";
-    } else {
-      document.getElementById("streamJoinAndLeave").innerHTML = "Join";
-    }
-  };
+  //   // UI changes for join and leave
+  //   isStreamChannelJoined = !isStreamChannelJoined;
+  //   if (isStreamChannelJoined) {
+  //     document.getElementById("streamJoinAndLeave").innerHTML = "Leave";
+  //   } else {
+  //     document.getElementById("streamJoinAndLeave").innerHTML = "Join";
+  //   }
+  // };
 
   // send channel message
   document.getElementById("send_channel_message").onclick = async function () {
@@ -86,7 +86,7 @@ window.onload = async () => {
   };
 
   // Go to the relevant documentation page on docs.agora.io
-  document.getElementById("fullDoc").onclick = async function () {
-    window.open(docURLs["authentication"], "_blank").focus();
-  };
+  // document.getElementById("fullDoc").onclick = async function () {
+  //   window.open(docURLs["authentication"], "_blank").focus();
+  // };
 };
